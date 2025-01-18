@@ -1,6 +1,4 @@
-fastapi
-uvicorn
-fastui
-python-multipart
-#sqlalchemy
-#aiosqlite
+fastapi[all]
+requests
+httpx
+curl_fetch2py
