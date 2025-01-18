@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+fastui
+python-multipart
+#sqlalchemy
+#aiosqlite
