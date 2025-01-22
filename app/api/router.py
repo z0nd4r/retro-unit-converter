@@ -18,16 +18,14 @@ async def main_logic(request_body: RequestData):
     request_type = request_body.request_type
     target = request_body.target
     data_int_float = request_body.data_int_float
-
     try:
-        print('ssss')
-        if request_type:
-            print('aaaaaaa')
-            result = Converter(request_type, target, data_int_float)
+        print('request_type:', request_type, 'target:', target, 'data_int_float:', data_int_float)
+        if request_type in ['Длина', 'Масса']: # Проверка что `request_type` валидное значение
+           result = Converter(request_type, target, data_int_float).convert() # Создаем экземпляр и вызываем метод
+           print('result:', result)
         else:
-            print('sfffffff')
-            raise ValueError("Unsupported start type")
-        return {"request_string": result[0]}
+            raise ValueError("Unsupported request type")
+        return {"request_string": result}
     except Exception as e:
+        print('Exception:', e)
         raise HTTPException(status_code=500, detail=str(e))
-    

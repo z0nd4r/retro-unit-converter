@@ -1,4 +1,4 @@
 fastapi[all]
-requests
-httpx
-curl_fetch2py
+uvicorn
+pint
+pydantic
