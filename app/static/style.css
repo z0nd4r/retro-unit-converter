@@ -1,9 +1,11 @@
 :root {
-  --primary-color: #2196f3;
-  --hover-color: #1976d2;
+  --primary-color: #00873c;
+  --hover-color: #006b2e;
   --bg-color: #f5f5f5;
-  --text-color: #333;
-  --border-radius: 8px;
+  --text-color: #004d1a;
+  --border-color: #00873c;
+  --terminal-bg: #002b0e;
+  --terminal-glow: #00ff4c;
 }
 
 * {
@@ -13,7 +15,7 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Courier New', Courier, monospace;
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
@@ -28,7 +30,10 @@ body {
 h1 {
   text-align: center;
   margin-bottom: 2rem;
-  color: var(--text-color);
+  color: var(--terminal-bg);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px var(--terminal-glow);
 }
 
 .converter-type {
@@ -40,29 +45,36 @@ h1 {
 
 .type-btn {
   padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: var(--border-radius);
-  background-color: #fff;
+  border: 2px solid var(--border-color);
+  background-color: transparent;
+  color: var(--text-color);
   cursor: pointer;
   font-size: 1rem;
+  font-family: 'Courier New', Courier, monospace;
+  text-transform: uppercase;
   transition: all 0.3s ease;
+  box-shadow: 3px 3px 0 var(--border-color);
 }
 
 .type-btn.active {
-  background-color: var(--primary-color);
-  color: white;
+  background-color: var(--terminal-bg);
+  color: var(--terminal-glow);
+  box-shadow: none;
+  transform: translate(3px, 3px);
 }
 
 .type-btn:hover:not(.active) {
-  background-color: var(--hover-color);
+  background-color: var(--border-color);
   color: white;
 }
 
 .converter {
-  background-color: white;
+  background-color: var(--terminal-bg);
   padding: 2rem;
-  border-radius: var(--border-radius);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 0;
+  border: 2px solid var(--border-color);
+  box-shadow: 5px 5px 0 var(--border-color);
+  color: var(--terminal-glow);
 }
 
 .input-group {
@@ -73,9 +85,15 @@ h1 {
 
 input, select {
   padding: 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: var(--border-radius);
+  border: 2px solid var(--terminal-glow);
+  background-color: var(--terminal-bg);
+  color: var(--terminal-glow);
+  font-family: 'Courier New', Courier, monospace;
   font-size: 1rem;
+}
+
+input::placeholder {
+  color: rgba(0, 255, 76, 0.5);
 }
 
 input {
@@ -84,6 +102,17 @@ input {
 
 select {
   flex: 1;
+  cursor: pointer;
+  width: 100%;
+}
+
+select option {
+  background-color: var(--terminal-bg);
+  color: var(--terminal-glow);
+}
+
+#mass-unit {
+  display: none;
 }
 
 .results-grid {
@@ -93,20 +122,66 @@ select {
 }
 
 .result-card {
-  background-color: var(--bg-color);
+  border: 2px solid var(--terminal-glow);
   padding: 1rem;
-  border-radius: var(--border-radius);
   text-align: center;
+  background-color: rgba(0, 43, 14, 0.8);
+  box-shadow: 3px 3px 0 var(--terminal-glow);
 }
 
 .result-value {
   font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
+  color: var(--terminal-glow);
+  text-shadow: 0 0 10px var(--terminal-glow);
 }
 
 .result-unit {
-  color: #666;
+  color: var(--terminal-glow);
+  opacity: 0.8;
+}
+
+.credits {
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.convert-btn {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  background-color: transparent;
+  color: var(--terminal-glow);
+  border: 2px solid var(--terminal-glow);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+  box-shadow: 3px 3px 0 var(--terminal-glow);
+}
+
+.convert-btn:hover {
+  background-color: var(--terminal-glow);
+  color: var(--terminal-bg);
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
+
+.error-message {
+  text-align: center;
+  color: #ff4242;
+  padding: 1rem;
+  grid-column: 1 / -1;
+  text-shadow: 0 0 10px #ff4242;
 }
 
 @media (max-width: 600px) {
@@ -117,13 +192,4 @@ select {
   .results-grid {
     grid-template-columns: 1fr;
   }
-}
-
-/* Add new styles for the credits section */
-.credits {
-  text-align: center;
-  margin-top: 2rem;
-  color: #666;
-  font-size: 0.9rem;
-  line-height: 1.4;
 }

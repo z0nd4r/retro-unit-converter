@@ -7,13 +7,20 @@ def Converter(request_type, target, data_int_float):
         lst_length = ['cm', 'km', 'm', 'mm', 'mile', 'yard', 'foot', 'inch']
         lst_length.remove(target)
         data_int_float = data_int_float * ureg['cm']
+        lst = []
         for lh in lst_length:
-            lst = []
-            lst.append(data_int_float.to(lh).magnitude)
-    elif request_type == "weigth":
+            converted_value = data_int_float.to(lh)
+            lst.append(f"{converted_value.magnitude:.2f} {converted_value.units}")
+        print(lst)
+        return ", ".join(lst)
+    elif request_type == "mass":
         lst_weigth = ['kg', 'g', 'mg', 'ton', 'pound', 'ounce']
         lst_weigth.remove(target)
         data_int_float = data_int_float * ureg['cm']
+        lst = []
         for wh in lst_weigth:
-            lst = []
-            lst.append(data_int_float.to(wh).magnitude)
+            converted_value = data_int_float.to(wh)
+            lst.append(f"{converted_value.magnitude:.2f} {converted_value.units}")
+        print(lst)
+        return ", ".join(lst)
+        
