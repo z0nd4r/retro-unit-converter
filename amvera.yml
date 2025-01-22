@@ -1,0 +1,13 @@
+---
+version: null
+meta:
+  environment: python
+  toolchain:
+    name: pip
+    version: 3.11
+build:
+  requirementsPath: requirements.txt
+run:
+  command: uvicorn app.main:app --host 0.0.0.0
+  persistenceMount: /data
+  containerPort: 80
