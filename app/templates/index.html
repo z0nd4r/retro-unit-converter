@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retro Unit Converter</title>
+  <link rel="stylesheet" href="static\style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Unit Converter</h1>
+    
+    <div class="converter-type">
+      <button class="type-btn active" data-type="length">Length</button>
+      <button class="type-btn" data-type="mass">Mass</button>
+    </div>
+
+    <div class="converter">
+      <div class="input-group">
+        <input type="number" id="input-value" placeholder="Enter value">
+        <select id="length-unit">
+          <option value="m">Meter (m)</option>
+          <option value="km">Kilometer (km)</option>
+          <option value="cm">Centimeter (cm)</option>
+          <option value="mm">Millimeter (mm)</option>
+          <option value="mi">Mile (mi)</option>
+          <option value="yd">Yard (yd)</option>
+          <option value="ft">Foot (ft)</option>
+          <option value="in">Inch (in)</option>
+        </select>
+        <select id="mass-unit">
+          <option value="kg">Kilogram (kg)</option>
+          <option value="g">Gram (g)</option>
+          <option value="mg">Milligram (mg)</option>
+          <option value="t">Metric Ton (t)</option>
+          <option value="lb">Pound (lb)</option>
+          <option value="oz">Ounce (oz)</option>
+        </select>
+      </div>
+
+      <button id="convert-btn" class="convert-btn" >Convert</button>
+
+      <div class="results">
+        <div class="results-grid">
+          <!-- Results will be populated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <div class="credits">
+      Backend: zondar__<br>
+      Frontend: websim
+    </div>
+  </div>
+  
+  <script src="static\script.js"></script>
+</body>
+</html>
