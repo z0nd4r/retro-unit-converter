@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 fastapi[all]
 uvicorn
 pint
 pydantic
+=======
+fastapi[all]
+uvicorn
+pint
+pydantic
+>>>>>>> amvera/master
