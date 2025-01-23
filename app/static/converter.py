@@ -13,7 +13,7 @@ class Converter:
         print('Inside Converter - request_type:', self.request_type, 'target:', self.target, 'data_int_float:',
               self.data_int_float)
         if self.request_type == "Длина":
-            lst_length = ['cm', 'km', 'm', 'mm', 'mile', 'yard', 'foot', 'inch']
+            lst_length = ['cm', 'km', 'm', 'mm', 'mi', 'yd', 'ft', 'in']
             lst_length.remove(self.target)
             initial_value = self.data_int_float * ureg[self.target]  # Умножаем на верную единицу
             lst = []
@@ -23,7 +23,7 @@ class Converter:
             print(lst)
             return ", ".join(lst)
         elif self.request_type == "Масса":
-            lst_weigth = ['kg', 'g', 'mg', 't', 'pound', 'ounce']
+            lst_weigth = ['kg', 'g', 'mg', 't', 'lb', 'oz']
             lst_weigth.remove(self.target)
             initial_value = self.data_int_float * ureg[self.target]  # Умножаем на верную единицу
             lst = []
