@@ -8,6 +8,6 @@ meta:
 build:
   requirementsPath: requirements.txt
 run:
-  command: uvicorn app.main:app --host 0.0.0.0
+  command: uvicorn app.main:app --host 0.0.0.0 --port 8000
   persistenceMount: /data
-  containerPort: 80
+  containerPort: 8000
