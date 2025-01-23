@@ -20,8 +20,8 @@ async def main_logic(request_body: RequestData):
     data_int_float = request_body.data_int_float
     try:
         print('request_type:', request_type, 'target:', target, 'data_int_float:', data_int_float)
-        if request_type in ['Длина', 'Масса']: # Проверка что `request_type` валидное значение
-           result = Converter(request_type, target, data_int_float).convert() # Создаем экземпляр и вызываем метод
+        if request_type in ['Длина', 'Масса']:
+           result = Converter(request_type, target, data_int_float).convert()
            print('result:', result)
         else:
             raise ValueError("Unsupported request type")
