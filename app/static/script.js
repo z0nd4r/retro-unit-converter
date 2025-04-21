@@ -93,7 +93,7 @@ async function convert() {
             headers['If-Modified-Since'] = lastModified;
         }
 
-        const response = await fetch('/api', {
+        const response = await fetch('/converter/api', {
             method: 'POST',
             headers: headers,
             body: JSON.stringify(requestBody)

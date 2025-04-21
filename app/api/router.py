@@ -1,10 +1,11 @@
-from fastapi import APIRouter, Request, HTTPException, Depends
+from fastapi import APIRouter, Request, HTTPException
 from fastapi.templating import Jinja2Templates
-from app.api.models import RequestData
-from app.static.converter import Converter
 
-router = APIRouter(prefix='', tags=['API'])
-templates = Jinja2Templates(directory='app/templates')
+from app.api.schemas import RequestData
+from app.utils.converter import Converter
+
+router = APIRouter(prefix='/converter', tags=['API'])
+templates = Jinja2Templates(directory='app/templates/')
 
 
 @router.get('/')

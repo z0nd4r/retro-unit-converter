@@ -23,11 +23,11 @@ class Converter:
             print(lst)
             return ", ".join(lst)
         elif self.request_type == "Масса":
-            lst_weigth = ['kg', 'g', 'mg', 't', 'lb', 'oz']
-            lst_weigth.remove(self.target)
+            lst_weight = ['kg', 'g', 'mg', 't', 'lb', 'oz']
+            lst_weight.remove(self.target)
             initial_value = self.data_int_float * ureg[self.target]  # Умножаем на верную единицу
             lst = []
-            for wh in lst_weigth:
+            for wh in lst_weight:
                 converted_value = initial_value.to(wh)
                 lst.append(f"{converted_value.magnitude:.2f} {converted_value.units}")
             print(lst)
